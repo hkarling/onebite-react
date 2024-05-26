@@ -21,3 +21,8 @@ Currently, two official plugins are available:
 - State의 사용 이유
 
   - state를 사용하지 않고 javascript 변수를 사용하는 경우 re-redering이 일어나지 않는다
+
+- Component rerendering 조건
+  1. State 변경 시
+  2. props 변경 시
+  3. 부모 component가 리렌더링 시
