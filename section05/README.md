@@ -26,3 +26,18 @@ Currently, two official plugins are available:
   1. State 변경 시
   2. props 변경 시
   3. 부모 component가 리렌더링 시
+
+## useRef 사용하기
+
+- useRef
+  - 새로운 Reference 객체를 생성하는 기능
+  - 컴포넌트 내부의 변수 사용
+  - useState와는 달리 어떠한 경우에도 리렌더링을 유발하지 않음
+  - 컴포넌트 내부의 요소들을 조작
+- 사용이유
+  - 단순 pure 자바스크립트로 선언된 변수들은 컴포넌트 내부 함수들에 사용되는 변수의 경우 리렌더링 되면서 초기화 될 수 있다
+  - 컴포넌트 바깥에서는 변수 선언을 해서는 컴포넌트 간의 간섭이 있을 수 있어 이를 방지
+
+### 참고
+
+[https://one-step-js.hyobb.com/2e6337b2-0a55-4488-908c-1d08baa20d23]
