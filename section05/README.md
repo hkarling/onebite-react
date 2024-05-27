@@ -41,3 +41,15 @@ Currently, two official plugins are available:
 ### 참고
 
 [https://one-step-js.hyobb.com/2e6337b2-0a55-4488-908c-1d08baa20d23]
+
+## React Hooks
+
+- React Hooks
+  - 클래스 컴포넌트의 기능을 함수 컴포넌트에서도 이용할 수 있도록 도와주는 메서드 모음
+  - 2017년도 이전에는 function component는 UI 렌더링만 할 수 있었음
+  - class component는 모든 기능을 사용할 수 있지만 문법이 복잡함
+  - useState, useRef 등도 hook의 일종임
+  - react hooks는 use라는 접두사가 붙게 된다
+  - 함수 컴포넌트 내부에서망 호출됨
+  - 조건문, 반복문 내부에서는 호출되지 않음
+  - 커스텀 hook도 만들 수 있다
