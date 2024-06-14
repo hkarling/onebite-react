@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useRef, useReducer } from "react";
+import { useState, useRef, useReducer, useCallback } from "react";
 import Header from "./components/Header";
 import Editor from "./components/Editor";
 import List from "./components/List";
@@ -43,7 +43,10 @@ function reducer(state, action) {
 function App() {
   const [todos, dispatch] = useReducer(reducer, mocData);
   const idRef = useRef(3);
-  const onCreate = (content) => {
+
+  // 1. 기능 구현이 우선 -> 최적화 할 것
+  // 2. 모든 것에 최적화가 들어가면 x, 꼭 필요한 연산/컴포넌트만 대상으로 할 것
+  const onCreate = useCallback((content) => {
     dispatch({
       type: "CREATE",
       data: {
@@ -53,23 +56,23 @@ function App() {
         date: new Date().getTime(),
       },
     });
-  };
+  }, []);
 
-  const onUpdate = (targetId) => {
+  const onUpdate = useCallback((targetId) => {
     dispatch({
       type: "UPDATE",
       targetId: targetId,
     });
-  };
+  }, []);
 
-  const onDelete = (targetId) => {
+  const onDelete = useCallback((targetId) => {
     // 인수: todos 배열에서 targetId와 일치하는 id를 갖는 요소를 삭제한 배열
     // setTodos(todos.filter((todo) => todo.id !== targetId));
     dispatch({
       type: "DELETE",
       targetId: targetId,
     });
-  };
+  }, []);
   return (
     <div className="App">
       <Header />
