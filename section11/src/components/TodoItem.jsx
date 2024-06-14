@@ -1,9 +1,9 @@
 import "./TodoItem.css";
 import { memo, useContext } from "react";
-import { TodoContext } from "../App";
+import { TodoDispatchContext } from "../App";
 
 const TodoItem = ({ id, isDone, content, date }) => {
-  const { onUpdate, onDelete } = useContext(TodoContext);
+  const { onUpdate, onDelete } = useContext(TodoDispatchContext);
   const onChangeChecked = () => onUpdate(id);
   const onClickDelete = () => onDelete(id);
   return (
@@ -16,7 +16,7 @@ const TodoItem = ({ id, isDone, content, date }) => {
   );
 };
 
-export default TodoItem;
+export default memo(TodoItem);
 // 그냥은 의도했던 대로 동작하지 않는다
 //  -> App에서의 function들이 다시 생성되기 때문
 // export default memo(TodoItem, (prevProps, nextProps) => {
