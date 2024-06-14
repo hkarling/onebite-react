@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import New from "./pages/New";
 import Diary from "./pages/Diary";
 import NotFound from "./pages/NotFound";
+import Button from "./components/Button";
+import Header from "./components/Header";
 
 import { getEmotionImage } from "./utils/get-emotion-image";
 
@@ -17,30 +19,32 @@ function App() {
   };
   return (
     <>
-      {/* <div>
-        <img src="/emotion1.png" />
-        <img src="/emotion2.png" />
-        <img src="/emotion3.png" />
-        <img src="/emotion4.png" />
-        <img src="/emotion5.png" />
-      </div> */}
-      <div>
-        <img src={getEmotionImage(1)} />
-        <img src={getEmotionImage(2)} />
-        <img src={getEmotionImage(3)} />
-        <img src={getEmotionImage(4)} />
-        <img src={getEmotionImage(5)} />
-      </div>
-      <div>
-        <Link to={"/"}>Home</Link>
-        <Link to={"/new"}>New</Link>
-        <Link to={"/diary"}>Diary</Link>
-        {/* // SPA로 동작하지 않는다
-        <a href="/">Home</a>
-        <a href="/new">new</a>
-        <a href="/diary">diary</a> */}
-      </div>
-      <button onClick={onClickButton}>New 페이지로 이동</button>
+      <Header
+        title={"Header"}
+        leftChild={<Button text={"Left"} />}
+        rightChild={<Button text={"Right"} />}
+      />
+      <Button
+        text={"DEFAULT"}
+        type={"DEFAULT"}
+        onClick={() => {
+          console.log("DEFAULT 버튼 클릭");
+        }}
+      />
+      <Button
+        text={"POSITIVE"}
+        type={"POSITIVE"}
+        onClick={() => {
+          console.log("POSITIVE 버튼 클릭");
+        }}
+      />
+      <Button
+        text={"NEGATIVE"}
+        type={"NEGATIVE"}
+        onClick={() => {
+          console.log("NEGATIVE 버튼 클릭");
+        }}
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/new" element={<New />} />
